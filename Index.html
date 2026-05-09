@@ -1,0 +1,212 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0f1117;--bg2:#181c27;--bg3:#1e2334;--bg4:#252b3b;
+--border:#2e3650;--border2:#3d4a6b;
+--text:#e8eaf0;--text2:#9aa3bc;--text3:#6b7592;
+--kw:#7eb8f7;--fn:#7dd8a0;--str:#f5a97f;--cm:#555f7e;
+--acc:#4d7cf8;--acc2:#3a63d4;
+--tag-bg:#1e2a4a;--tag-text:#7eb8f7;
+--chevron:#6b7592;
+--res-head:#1a2038;
+}
+.wrap{padding:1rem 0;max-width:100%;background:var(--bg);min-height:100vh;color:var(--text)}
+.hero{text-align:center;padding:2rem 1rem 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+.hero h1{font-family:var(--font-sans);font-size:22px;font-weight:500;color:var(--text);letter-spacing:-0.3px}
+.hero p{font-family:var(--font-sans);font-size:14px;color:var(--text2);margin-top:6px}
+.tables-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem;padding:0 0}
+.tbl-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1rem}
+.tbl-card h3{font-family:var(--font-sans);font-size:11px;font-weight:500;color:var(--text3);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.8px}
+table.demo{width:100%;border-collapse:collapse;font-size:12px;font-family:var(--font-mono)}
+table.demo th{background:var(--bg3);color:var(--text2);font-weight:500;padding:6px 8px;text-align:left;border:1px solid var(--border)}
+table.demo td{padding:5px 8px;border:1px solid var(--border);color:var(--text)}
+table.demo tr:nth-child(even) td{background:var(--bg3)}
+.nav{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.5rem;padding:0 0 1.25rem;border-bottom:1px solid var(--border)}
+.nav-btn{
+  font-family:var(--font-sans);font-size:12px;padding:5px 13px;
+  border:1.5px solid var(--border2);border-radius:20px;
+  background:var(--bg2);color:var(--text2);
+  cursor:pointer;transition:all 0.15s;font-weight:500;
+}
+.nav-btn:hover{background:var(--bg3);color:var(--text);border-color:#5a6f9e}
+.nav-btn.active{background:var(--acc);color:#fff;border-color:var(--acc);font-weight:500}
+.sections{display:flex;flex-direction:column;gap:8px}
+.section{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.sec-head{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;cursor:pointer;user-select:none;transition:background 0.1s}
+.sec-head:hover{background:var(--bg3)}
+.sec-title{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--text)}
+.sec-tag{font-family:var(--font-sans);font-size:10px;padding:2px 9px;border-radius:20px;background:var(--tag-bg);color:var(--tag-text);border:1px solid #2a3d6a;font-weight:500}
+.chevron{font-size:11px;color:var(--chevron);transition:transform 0.2s;margin-left:8px}
+.chevron.open{transform:rotate(180deg)}
+.sec-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border)}
+.sec-body.open{display:block}
+.desc{font-family:var(--font-sans);font-size:13px;color:var(--text2);line-height:1.6;margin:10px 0 8px}
+.code-block{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:11px 13px;font-size:12px;color:var(--text);line-height:1.75;white-space:pre;overflow-x:auto;margin-bottom:6px;font-family:var(--font-mono)}
+.kw{color:var(--kw)}
+.fn{color:var(--fn)}
+.str{color:var(--str)}
+.cm{color:var(--cm);font-style:italic}
+.result-label{font-family:var(--font-sans);font-size:11px;color:var(--text3);margin:8px 0 5px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px}
+table.res{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:4px;font-family:var(--font-mono)}
+table.res th{background:var(--res-head);color:var(--text2);font-weight:500;padding:5px 8px;text-align:left;border:1px solid var(--border)}
+table.res td{padding:4px 8px;border:1px solid var(--border);color:var(--text)}
+table.res tr:nth-child(even) td{background:var(--bg3)}
+.group-label{font-family:var(--font-sans);font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.8px;margin:1.1rem 0 6px;padding:0 2px}
+</style>
+<div class="wrap">
+<div class="hero">
+  <h1>SQL cheat sheet</h1>
+  <p>Reference tables · Syntax · Examples for every topic</p>
+</div>
+
+<div class="tables-row">
+  <div class="tbl-card">
+    <h3>Employees</h3>
+    <table class="demo">
+      <tr><th>EmpID</th><th>Name</th><th>Dept</th><th>Salary</th><th>Country</th></tr>
+      <tr><td>1</td><td>Alice</td><td>IT</td><td>75000</td><td>USA</td></tr>
+      <tr><td>2</td><td>Bob</td><td>HR</td><td>55000</td><td>UK</td></tr>
+      <tr><td>3</td><td>Carol</td><td>IT</td><td>82000</td><td>USA</td></tr>
+      <tr><td>4</td><td>Dave</td><td>Sales</td><td>61000</td><td>India</td></tr>
+      <tr><td>5</td><td>Eve</td><td>HR</td><td>NULL</td><td>UK</td></tr>
+    </table>
+  </div>
+  <div class="tbl-card">
+    <h3>Departments</h3>
+    <table class="demo">
+      <tr><th>DeptID</th><th>DeptName</th><th>Manager</th><th>Budget</th></tr>
+      <tr><td>10</td><td>IT</td><td>Alice</td><td>200000</td></tr>
+      <tr><td>20</td><td>HR</td><td>Bob</td><td>80000</td></tr>
+      <tr><td>30</td><td>Sales</td><td>Dave</td><td>150000</td></tr>
+      <tr><td>40</td><td>Legal</td><td>NULL</td><td>50000</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="nav" id="nav"></div>
+<div id="sections"></div>
+</div>
+
+<script>
+const KW = s => s.replace(/\b(SELECT|FROM|WHERE|AND|OR|NOT|INSERT INTO|VALUES|UPDATE|SET|DELETE|ORDER BY|ASC|DESC|DISTINCT|TOP|PERCENT|MIN|MAX|COUNT|SUM|AVG|LIKE|IN|BETWEEN|AS|JOIN|INNER JOIN|LEFT JOIN|RIGHT JOIN|FULL JOIN|FULL OUTER JOIN|SELF JOIN|UNION|UNION ALL|GROUP BY|HAVING|EXISTS|ANY|ALL|SELECT INTO|INSERT INTO SELECT|CASE|WHEN|THEN|ELSE|END|IS NULL|IS NOT NULL|IFNULL|ISNULL|COALESCE|NVL|EXEC|CREATE PROCEDURE|BEGIN|RETURN|LIMIT|ON|WITH|TIES|NULLIF)\b/g,'<span class="kw">$1</span>').replace(/\b(COUNT|SUM|AVG|MIN|MAX|UPPER|LOWER|LEN|ROUND|COALESCE|ISNULL|NVL|IFNULL|NULLIF)\b/g,'<span class="fn">$1</span>').replace(/'([^']*)'/g,"<span class='str'>'$1'</span>").replace(/(-- .+)/g,'<span class="cm">$1</span>');
+
+const groups = {
+  "Basics":["SQL Intro","SQL Syntax","SQL Select","SQL Select Distinct","SQL Where","SQL Order By"],
+  "Logic":["SQL And","SQL Or","SQL Not"],
+  "Data Manipulation":["SQL Insert Into","SQL Update","SQL Delete"],
+  "Null Handling":["SQL Null Values","SQL Null Functions"],
+  "Filtering":["SQL Like","SQL Wildcards","SQL In","SQL Between","SQL Exists","SQL Any","SQL All","SQL Select Top"],
+  "Aggregates":["SQL Aggregate Functions","SQL Min()","SQL Max()","SQL Count()","SQL Sum()","SQL Avg()","SQL Group By","SQL Having"],
+  "Joins":["SQL Joins","SQL Inner Join","SQL Left Join","SQL Right Join","SQL Full Join","SQL Self Join"],
+  "Set Ops":["SQL Union","SQL Union All"],
+  "Advanced":["SQL Aliases","SQL Select Into","SQL Insert Into Select","SQL Case","SQL Stored Procedures","SQL Comments","SQL Operators"],
+};
+
+const data = {
+  "SQL Intro":{tag:"Concept",desc:"SQL (Structured Query Language) is used to communicate with relational databases. It lets you query, insert, update, and delete data.",code:`-- SQL is case-insensitive for keywords\n-- Statements end with a semicolon (;)\nSELECT * FROM Employees;`},
+  "SQL Syntax":{tag:"Concept",desc:"A SQL statement begins with a keyword followed by clauses. Clauses have a required order.",code:`SELECT column1, column2   -- what to fetch\nFROM table_name            -- from where\nWHERE condition            -- filter rows\nORDER BY column1;          -- sort result`},
+  "SQL Select":{tag:"Query",desc:"Retrieves data from one or more columns in a table.",code:`SELECT Name, Salary FROM Employees;`,result:{h:["Name","Salary"],r:[["Alice","75000"],["Bob","55000"],["Carol","82000"],["Dave","61000"],["Eve","NULL"]]}},
+  "SQL Select Distinct":{tag:"Query",desc:"Returns only unique (non-duplicate) values from a column.",code:`SELECT DISTINCT Dept FROM Employees;`,result:{h:["Dept"],r:[["IT"],["HR"],["Sales"]]}},
+  "SQL Where":{tag:"Filter",desc:"Filters rows based on a condition. Used with SELECT, UPDATE, DELETE.",code:`SELECT Name, Salary FROM Employees\nWHERE Country = 'USA';`,result:{h:["Name","Salary"],r:[["Alice","75000"],["Carol","82000"]]}},
+  "SQL Order By":{tag:"Sort",desc:"Sorts the result set. ASC (default) for ascending, DESC for descending.",code:`SELECT Name, Salary FROM Employees\nORDER BY Salary DESC;`,result:{h:["Name","Salary"],r:[["Carol","82000"],["Alice","75000"],["Dave","61000"],["Bob","55000"],["Eve","NULL"]]}},
+  "SQL And":{tag:"Logic",desc:"Combines two conditions — both must be true.",code:`SELECT * FROM Employees\nWHERE Dept = 'IT' AND Country = 'USA';`,result:{h:["Name","Dept"],r:[["Alice","IT"],["Carol","IT"]]}},
+  "SQL Or":{tag:"Logic",desc:"At least one condition must be true.",code:`SELECT Name FROM Employees\nWHERE Dept = 'HR' OR Country = 'India';`,result:{h:["Name"],r:[["Bob"],["Dave"],["Eve"]]}},
+  "SQL Not":{tag:"Logic",desc:"Negates a condition — returns rows where the condition is false.",code:`SELECT Name FROM Employees\nWHERE NOT Dept = 'IT';`,result:{h:["Name"],r:[["Bob"],["Dave"],["Eve"]]}},
+  "SQL Insert Into":{tag:"DML",desc:"Adds new rows to a table. You can specify columns or insert values for all columns.",code:`-- Specify columns\nINSERT INTO Employees (EmpID, Name, Dept, Salary, Country)\nVALUES (6, 'Frank', 'Sales', 70000, 'USA');\n\n-- All columns (order must match table)\nINSERT INTO Employees\nVALUES (7, 'Grace', 'IT', 90000, 'USA');`},
+  "SQL Null Values":{tag:"Null",desc:"NULL means missing/unknown data. Use IS NULL or IS NOT NULL — you cannot use = NULL.",code:`SELECT Name FROM Employees WHERE Salary IS NULL;\nSELECT Name FROM Employees WHERE Salary IS NOT NULL;`,result:{h:["IS NULL → Name","IS NOT NULL → Names"],r:[["Eve","Alice, Bob, Carol, Dave"]]}},
+  "SQL Update":{tag:"DML",desc:"Modifies existing rows. Always use WHERE or every row gets updated.",code:`UPDATE Employees\nSET Salary = 60000\nWHERE Name = 'Eve';\n\n-- Update multiple columns\nUPDATE Employees\nSET Salary = 95000, Country = 'Canada'\nWHERE EmpID = 3;`},
+  "SQL Delete":{tag:"DML",desc:"Removes rows from a table. Omitting WHERE deletes all rows.",code:`DELETE FROM Employees WHERE EmpID = 5;\n\n-- Delete all rows (dangerous!)\nDELETE FROM Employees;`},
+  "SQL Select Top":{tag:"Filter",desc:"Limits the number of rows returned. Syntax varies by database.",code:`-- SQL Server\nSELECT TOP 3 Name, Salary FROM Employees\nORDER BY Salary DESC;\n\n-- MySQL / PostgreSQL\nSELECT Name, Salary FROM Employees\nORDER BY Salary DESC LIMIT 3;`,result:{h:["Name","Salary"],r:[["Carol","82000"],["Alice","75000"],["Dave","61000"]]}},
+  "SQL Aggregate Functions":{tag:"Aggregate",desc:"Perform a calculation on a set of values and return a single value. They ignore NULLs by default.",code:`SELECT COUNT(*), SUM(Salary), AVG(Salary),\n       MIN(Salary), MAX(Salary)\nFROM Employees;`},
+  "SQL Min()":{tag:"Aggregate",desc:"Returns the smallest value in a column.",code:`SELECT MIN(Salary) AS LowestSalary FROM Employees;`,result:{h:["LowestSalary"],r:[["55000"]]}},
+  "SQL Max()":{tag:"Aggregate",desc:"Returns the largest value in a column.",code:`SELECT MAX(Salary) AS HighestSalary FROM Employees;`,result:{h:["HighestSalary"],r:[["82000"]]}},
+  "SQL Count()":{tag:"Aggregate",desc:"Counts rows. COUNT(*) counts all rows; COUNT(col) skips NULLs.",code:`SELECT COUNT(*) AS TotalRows FROM Employees;     -- 5\nSELECT COUNT(Salary) AS WithSalary FROM Employees; -- 4`,result:{h:["TotalRows","WithSalary"],r:[["5","4"]]}},
+  "SQL Sum()":{tag:"Aggregate",desc:"Returns the total sum of a numeric column, ignoring NULLs.",code:`SELECT SUM(Salary) AS TotalPayroll FROM Employees;`,result:{h:["TotalPayroll"],r:[["273000"]]}},
+  "SQL Avg()":{tag:"Aggregate",desc:"Returns the average value of a numeric column, ignoring NULLs.",code:`SELECT AVG(Salary) AS AvgSalary FROM Employees;`,result:{h:["AvgSalary"],r:[["68250"]]}},
+  "SQL Like":{tag:"Filter",desc:"Searches for a pattern in a column using wildcards % and _.",code:`SELECT Name FROM Employees WHERE Name LIKE 'A%';   -- starts with A\nSELECT Name FROM Employees WHERE Name LIKE '%e';   -- ends with e\nSELECT Name FROM Employees WHERE Name LIKE '_o%';  -- 2nd char is o`,result:{h:["Pattern","Matches"],r:[["A%","Alice"],["_o%","Bob"]]}},
+  "SQL Wildcards":{tag:"Filter",desc:"Wildcard characters used with LIKE to match patterns.",code:`-- %  matches any sequence of characters\n-- _  matches exactly one character\n-- []  matches any character in the set (SQL Server)\n-- [^] matches any character NOT in the set\n\nSELECT Name FROM Employees WHERE Name LIKE '[ACE]%';\n-- Returns: Alice, Carol, Eve`},
+  "SQL In":{tag:"Filter",desc:"Matches any value in a list — shorthand for multiple OR conditions.",code:`SELECT Name, Dept FROM Employees\nWHERE Dept IN ('IT', 'HR');`,result:{h:["Name","Dept"],r:[["Alice","IT"],["Bob","HR"],["Carol","IT"],["Eve","HR"]]}},
+  "SQL Between":{tag:"Filter",desc:"Selects values within a range (inclusive on both ends). Works on numbers, text, and dates.",code:`SELECT Name, Salary FROM Employees\nWHERE Salary BETWEEN 60000 AND 80000;`,result:{h:["Name","Salary"],r:[["Alice","75000"],["Dave","61000"]]}},
+  "SQL Aliases":{tag:"Query",desc:"Gives a temporary name to a column or table using AS.",code:`SELECT Name AS EmployeeName, Salary AS AnnualPay\nFROM Employees AS E\nWHERE E.Dept = 'IT';`,result:{h:["EmployeeName","AnnualPay"],r:[["Alice","75000"],["Carol","82000"]]}},
+  "SQL Joins":{tag:"Join",desc:"Joins combine rows from two or more tables based on a related column.",code:`SELECT columns\nFROM TableA\n[INNER|LEFT|RIGHT|FULL] JOIN TableB\nON TableA.key = TableB.key;`},
+  "SQL Inner Join":{tag:"Join",desc:"Returns rows that have matching values in both tables.",code:`SELECT E.Name, D.DeptName, D.Budget\nFROM Employees E\nINNER JOIN Departments D ON E.Dept = D.DeptName;`,result:{h:["Name","DeptName","Budget"],r:[["Alice","IT","200000"],["Bob","HR","80000"],["Carol","IT","200000"],["Dave","Sales","150000"],["Eve","HR","80000"]]}},
+  "SQL Left Join":{tag:"Join",desc:"Returns all rows from the left table, and matched rows from the right. NULLs fill unmatched columns.",code:`SELECT E.Name, D.DeptName\nFROM Employees E\nLEFT JOIN Departments D ON E.Dept = D.DeptName;`,result:{h:["Name","DeptName"],r:[["Alice","IT"],["Bob","HR"],["Carol","IT"],["Dave","Sales"],["Eve","HR"]]}},
+  "SQL Right Join":{tag:"Join",desc:"Returns all rows from the right table, and matched rows from the left.",code:`SELECT E.Name, D.DeptName\nFROM Employees E\nRIGHT JOIN Departments D ON E.Dept = D.DeptName;`,result:{h:["Name","DeptName"],r:[["Alice","IT"],["Bob","HR"],["Carol","IT"],["Dave","Sales"],["Eve","HR"],["NULL","Legal"]]}},
+  "SQL Full Join":{tag:"Join",desc:"Returns all rows from both tables. NULLs where there is no match on either side.",code:`SELECT E.Name, D.DeptName\nFROM Employees E\nFULL OUTER JOIN Departments D ON E.Dept = D.DeptName;`,result:{h:["Name","DeptName"],r:[["Alice","IT"],["Bob","HR"],["Carol","IT"],["Dave","Sales"],["Eve","HR"],["NULL","Legal"]]}},
+  "SQL Self Join":{tag:"Join",desc:"A table is joined with itself. Useful for comparing rows within the same table.",code:`SELECT A.Name AS Emp1, B.Name AS Emp2, A.Country\nFROM Employees A\nINNER JOIN Employees B\nON A.Country = B.Country AND A.EmpID < B.EmpID;`,result:{h:["Emp1","Emp2","Country"],r:[["Alice","Carol","USA"],["Bob","Eve","UK"]]}},
+  "SQL Union":{tag:"Set",desc:"Combines result sets of two SELECT statements and removes duplicates.",code:`SELECT Name, Country FROM Employees WHERE Country = 'USA'\nUNION\nSELECT Manager AS Name, 'Manager' AS Country FROM Departments;`},
+  "SQL Union All":{tag:"Set",desc:"Same as UNION but keeps all duplicates. Faster because no deduplication step.",code:`SELECT Dept FROM Employees\nUNION ALL\nSELECT DeptName FROM Departments;`},
+  "SQL Group By":{tag:"Aggregate",desc:"Groups rows with the same value in specified columns. Used with aggregate functions.",code:`SELECT Dept, COUNT(*) AS Headcount, AVG(Salary) AS AvgSalary\nFROM Employees\nGROUP BY Dept;`,result:{h:["Dept","Headcount","AvgSalary"],r:[["IT","2","78500"],["HR","2","55000"],["Sales","1","61000"]]}},
+  "SQL Having":{tag:"Filter",desc:"Filters groups after GROUP BY — like WHERE but for aggregates.",code:`SELECT Dept, COUNT(*) AS Headcount\nFROM Employees\nGROUP BY Dept\nHAVING COUNT(*) >= 2;`,result:{h:["Dept","Headcount"],r:[["IT","2"],["HR","2"]]}},
+  "SQL Exists":{tag:"Filter",desc:"Returns true if the subquery returns one or more rows.",code:`SELECT DeptName FROM Departments D\nWHERE EXISTS (\n  SELECT 1 FROM Employees E WHERE E.Dept = D.DeptName\n);`,result:{h:["DeptName"],r:[["IT"],["HR"],["Sales"]]}},
+  "SQL Any":{tag:"Filter",desc:"Returns true if any value in the subquery satisfies the condition.",code:`SELECT Name, Salary FROM Employees\nWHERE Salary > ANY (\n  SELECT Salary FROM Employees WHERE Dept = 'HR'\n);`,result:{h:["Name","Salary"],r:[["Alice","75000"],["Carol","82000"],["Dave","61000"]]}},
+  "SQL All":{tag:"Filter",desc:"Returns true only if all values in the subquery satisfy the condition.",code:`SELECT Name, Salary FROM Employees\nWHERE Salary > ALL (\n  SELECT Salary FROM Employees WHERE Dept = 'HR'\n);`,result:{h:["Name","Salary"],r:[["Alice","75000"],["Carol","82000"]]}},
+  "SQL Select Into":{tag:"Advanced",desc:"Copies data from one table into a new table.",code:`SELECT * INTO IT_Employees\nFROM Employees\nWHERE Dept = 'IT';\n\n-- Copy structure only (no data)\nSELECT * INTO EmptyClone FROM Employees WHERE 1 = 0;`},
+  "SQL Insert Into Select":{tag:"Advanced",desc:"Copies data from one table and inserts it into an existing table.",code:`INSERT INTO Employees_Backup (EmpID, Name, Dept)\nSELECT EmpID, Name, Dept\nFROM Employees\nWHERE Country = 'USA';`},
+  "SQL Case":{tag:"Advanced",desc:"Conditional logic inside a SQL query — like if/else.",code:`SELECT Name, Salary,\n  CASE\n    WHEN Salary > 75000 THEN 'Senior'\n    WHEN Salary BETWEEN 60000 AND 75000 THEN 'Mid'\n    ELSE 'Junior'\n  END AS Level\nFROM Employees;`,result:{h:["Name","Salary","Level"],r:[["Alice","75000","Mid"],["Bob","55000","Junior"],["Carol","82000","Senior"],["Dave","61000","Mid"]]}},
+  "SQL Null Functions":{tag:"Null",desc:"Functions to replace NULL with a fallback value. Syntax varies by database.",code:`-- MySQL\nSELECT Name, IFNULL(Salary, 0) AS Salary FROM Employees;\n\n-- SQL Server\nSELECT Name, ISNULL(Salary, 0) AS Salary FROM Employees;\n\n-- All databases\nSELECT Name, COALESCE(Salary, 0) AS Salary FROM Employees;`,result:{h:["Name","Salary (NULL → 0)"],r:[["Alice","75000"],["Bob","55000"],["Carol","82000"],["Dave","61000"],["Eve","0"]]}},
+  "SQL Stored Procedures":{tag:"Advanced",desc:"A saved SQL block that can be executed repeatedly with or without parameters.",code:`CREATE PROCEDURE GetByDept @dept VARCHAR(50)\nAS\nBEGIN\n  SELECT * FROM Employees WHERE Dept = @dept;\nEND;\n\nEXEC GetByDept 'IT';`},
+  "SQL Comments":{tag:"Concept",desc:"Comments are ignored by the SQL engine. Use them to document your queries.",code:`-- Single-line comment\n\n/* Multi-line\n   comment */\n\nSELECT Name /* inline comment */ FROM Employees;`},
+  "SQL Operators":{tag:"Concept",desc:"SQL has arithmetic, comparison, logical, and bitwise operators.",code:`-- Arithmetic:  +  -  *  /  %\nSELECT Name, Salary * 1.1 AS Raised FROM Employees;\n\n-- Comparison:  =  <>  !=  >  <  >=  <=\nSELECT * FROM Employees WHERE Salary <> 55000;\n\n-- Logical:     AND  OR  NOT  IN  BETWEEN  LIKE  EXISTS\nSELECT * FROM Employees\nWHERE Dept = 'IT' AND Salary >= 75000;`},
+};
+
+const navEl = document.getElementById('nav');
+const secEl = document.getElementById('sections');
+let activeGroup = null;
+
+function renderNav() {
+  navEl.innerHTML = '';
+  const allBtn = document.createElement('button');
+  allBtn.className = 'nav-btn' + (activeGroup === null ? ' active' : '');
+  allBtn.textContent = 'All';
+  allBtn.dataset.g = '';
+  navEl.appendChild(allBtn);
+  Object.keys(groups).forEach(g => {
+    const b = document.createElement('button');
+    b.className = 'nav-btn' + (activeGroup === g ? ' active' : '');
+    b.textContent = g;
+    b.dataset.g = g;
+    navEl.appendChild(b);
+  });
+}
+
+function renderSections() {
+  secEl.innerHTML = '';
+  const toShow = activeGroup ? {[activeGroup]: groups[activeGroup]} : groups;
+  Object.entries(toShow).forEach(([grp, topics]) => {
+    const gl = document.createElement('div');
+    gl.className = 'group-label';
+    gl.textContent = grp;
+    secEl.appendChild(gl);
+    topics.forEach(topic => {
+      const d = data[topic];
+      if (!d) return;
+      const sec = document.createElement('div');
+      sec.className = 'section';
+      let bodyHtml = `<div class="desc">${d.desc}</div><div class="code-block">${KW(d.code)}</div>`;
+      if (d.result) {
+        bodyHtml += `<div class="result-label">→ Result</div><table class="res"><tr>${d.result.h.map(h=>`<th>${h}</th>`).join('')}</tr>${d.result.r.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</table>`;
+      }
+      sec.innerHTML = `<div class="sec-head"><span class="sec-title">${topic}</span><div style="display:flex;gap:8px;align-items:center"><span class="sec-tag">${d.tag}</span><span class="chevron">▼</span></div></div><div class="sec-body">${bodyHtml}</div>`;
+      sec.querySelector('.sec-head').addEventListener('click', () => {
+        const body = sec.querySelector('.sec-body');
+        const chev = sec.querySelector('.chevron');
+        const open = body.classList.toggle('open');
+        chev.classList.toggle('open', open);
+      });
+      secEl.appendChild(sec);
+    });
+  });
+}
+
+navEl.addEventListener('click', e => {
+  if (!e.target.classList.contains('nav-btn')) return;
+  activeGroup = e.target.dataset.g || null;
+  renderNav();
+  renderSections();
+});
+
+renderNav();
+renderSections();
+</script>
